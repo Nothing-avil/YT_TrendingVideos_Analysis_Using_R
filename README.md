@@ -29,7 +29,8 @@ We believe that our dataset and metric will be useful for engagement analytics a
 
 
 # Whole Process Cycle
-![image](https://user-images.githubusercontent.com/129526047/230571412-32533197-b0e3-4945-9efa-d287d06dbe1b.png)
+![image](https://user-images.githubusercontent.com/129526047/230573386-c303cea5-3b7f-49a9-9d4b-b33d6704622d.png)                                  
+![image](https://user-images.githubusercontent.com/129526047/230573546-73862639-3eec-4ed6-9b74-c44a7a237039.png)
 
 
 # Metadata
@@ -124,4 +125,6 @@ The dataset includes the following columns:
 | q_score | Q score of video | 0.000000 |
 | label_1 | Engagement level based on engagement_rate_1 of video | 0.000000 |
 | label_2 | Engagement level based on q_score of video | 0.000000 |
+
+
 
