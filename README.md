@@ -29,7 +29,7 @@ We believe that our dataset and metric will be useful for engagement analytics a
 
 
 # Whole Process Cycle
-![image](https://user-images.githubusercontent.com/129526047/230568863-fbc6df26-ffb8-4d5d-8865-3e520d4293b6.png)
+![image](https://user-images.githubusercontent.com/129526047/230571412-32533197-b0e3-4945-9efa-d287d06dbe1b.png)
 
 
 # Metadata
