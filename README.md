@@ -85,3 +85,38 @@ The dataset includes the following columns:
 < > label_1 : Engagement level based on engagement_rate_1 of video
 
 < > label_2: Engagement level based on q_score of video
+
+
+## Missing Data Table
+
+| Column | Description | Missing Rate |
+| ------ | ----------- | ------------ |
+| channel_id | Id of channel | 0.000000 |
+| channel_name | Name of channel | 0.000000 |
+| channel_category | Category of channel | 0.000000 |
+| channel_started | Started year of channel | 0.000000 |
+| channel_rank | Rank of channel in most-subscribed Vietnamese channels | 0.000000 |
+| channel_subscribers | Number of subscribers of channel | 0.000000 |
+| id | Id of video | 0.000000 |
+| title | Title of video | 0.000000 |
+| length_title | Length title of video (tokens) | 0.000000 |
+| categories | Categories of video | 0.000000 |
+| description | Description of video | 0.017609 |
+| tags | Tags of video | 0.000000 |
+| num_tags | Number of tags of video | 0.000000 |
+| upload_date | Uploaded date of video | 0.000000 |
+| delta_upload_date | Distance between collected date and uploaded date (days) | 0.000000 |
+| duration | Duration of video (minutes) | 0.000000 |
+| view_count | Number of views of video | 0.000000 |
+| like_count | Number of likes of video | 0.000000 |
+| comment_count | Number of comments of video | 0.000000 |
+| dislike_count | Number of dislikes of video | 0.000000 |
+| like_per_view | Number of likes per views of video | 0.000000 |
+| comment_per_view | Number of comments per views of video | 0.000000 |
+| dislike_per_view | Number of dislikes per views of video | 0.000000 |
+| engagement_rate_1 | Total comments and likes per views of video | 0.000000 |
+| engagement_rate_2 | Total comments, likes, and dislikes per views of video | 0.000000 |
+| q_score | Q score of video | 0.000000 |
+| label_1 | Engagement level based on engagement_rate_1 of video | 0.000000 |
+| label_2 | Engagement level based on q_score of video | 0.000000 |
+
