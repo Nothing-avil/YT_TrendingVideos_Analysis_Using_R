@@ -27,6 +27,11 @@ The purpose of this project is to analyze the impact of the YouTube algorithm on
 We believe that our dataset and metric will be useful for engagement analytics and studies on social media content. Our project provides a foundation for future research into the YouTube algorithm and its impact on video recommendations.
 
 
+
+# Whole Process Cycle
+![image](https://user-images.githubusercontent.com/129526047/230568863-fbc6df26-ffb8-4d5d-8865-3e520d4293b6.png)
+
+
 # Metadata
 The dataset includes the following columns:
 
