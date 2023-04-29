@@ -22,7 +22,7 @@ Using a novel measure called the Q score, we annotated videos with three levels 
 
 # Purpose
 
-The purpose of this project is to analyze the impact of the YouTube algorithm on video recommendations. By using our annotated dataset and our metric for measuring video engagement, we aim to provide insights into how the algorithm selects and recommends videos to viewers.
+The purpose of this project is to analyze the impact of the factors on YouTube video . By using our annotated dataset and our metric for measuring video engagement, we aim to provide insights into how the video gets populated and which factor highly affect it.
 
 # Conclusion
 
