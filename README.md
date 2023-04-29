@@ -8,7 +8,7 @@
 
 This project aims to analyze the impact of the YouTube algorithm on video recommendations by building and utilizing an annotated dataset of 23,738 videos collected from 72 YouTube channels in Vietnam. Also I am analying the dataset for different countries to understand the algorithm behaviour for indivisual country.
 
-Countries analyzed for experiments includes India, Japan,Mexico, Russia and United State
+Countries analyzed for experiments includes India, great Britain, France, Cannada, Japan, Mexico, Russia and United State.
 
 # Introduction
 
