@@ -1,0 +1,1 @@
+This folder contain a template script followed for indivisual conuntry to extract insights and trends useful for gettng conclusion 
