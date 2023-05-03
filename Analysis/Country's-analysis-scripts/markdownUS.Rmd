@@ -1,0 +1,248 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+ IMPORTING IMPORTANT lIBRARIES
+```{r}
+library(xlsx)
+library(tm)
+library(tidyverse)
+library(wordcloud)
+library(corrplot)
+library(ggplot2)
+```
+
+ COLLECTION AND DATA CLEANING
+```{r}
+data <- read.csv("C:\\Users\\ujjwa\\Desktop\\Projects\\data Science\\Scratch Level Project\\Youtube Trend Video analysis\\Workspace data\\country_name.csv")
+```
+ 
+ 
+ UNDERSTANDING BASIC STRUCTURE OF DATA
+```{r}
+# Dimensions
+dim(data) 
+```
+
+```{r}
+# Structure with variable type
+str(data)
+```
+
+```{r}
+# also used for structure 
+glimpse(data)
+
+```
+
+```{r}
+# 5 point summary for each variable
+summary(data)
+
+```
+
+```{r}
+# check for category of each column
+sapply(data,class)
+```
+
+
+ 
+ CHECK FOR MISSING VALUES
+```{r}
+# For overall check with logical result
+data %>% anyNA()
+
+```
+
+```{r}
+# for checking total missing count
+sum(is.na(data))
+```
+
+```{r}
+# checking rowise variable for missing count
+sapply(data, function(x) sum(is.na(x)))
+```
+
+```{r}
+# REMOVING MISIING VALUES
+na.omit(data)
+```
+
+
+ADDING SOME NEW FEATURES
+```{r}
+# putting a new coloumn to get title length
+data$title_length<-sapply(data$title,nchar)
+
+#CONVERSION OF TYPES 
+data$category_id <- as.numeric(data$category_id)
+```
+
+PERFORMING EDA
+
+UNIVARIATE ANALYSIS 
+```{r}
+# For Likes
+hist(scale(data$likes), col=rainbow(10), main ="Histo for  likes", xlab="likes" )
+```
+
+```{r}
+# For Views
+hist(scale(data$views), col=rainbow(12), main ="Histo for views", xlab="views" )
+```
+
+```{r}
+# FOR DISLIKES
+hist(data$dislikes, col=rainbow(6), main ="Histo for  dislike", xlab="dislikes" )
+```
+
+```{r}
+# FOR TITLE LENGTH
+hist(data$title_length, col="red", main ="Histo for  title length", xlab="title length")
+```
+
+```{r}
+data$comment_total<-as.integer(data$comment_total)
+# FOR COMMENTS
+hist(scale(data$comment_total), col="red", main ="Histo for  comment", xlab="Comment count" )
+```
+
+```{r}
+# FOR CATEGORY ID
+hist(as.numeric(data$category_id), col="red", main ="Histo for  category", xlab="id" )
+```
+
+BIVARIATE ANALYSIS
+```{r}
+
+# CREATING CORELATION MATRIX TO UNDERSTAND LINEAR RELATIONSHIP BETWEEN VARIABLES 
+cor_matrix <- cor(data[,c("title_length","category_id","likes","views","dislikes","comment_total") ])
+
+corrplot::corrplot(cor_matrix,method = "pie", type = "full", bg ="white", tl.col = "red", tl.srt = 70 , addCoef.col = "black", diag = F)
+
+write.csv(cor_matrix, file = "cormatrix data.csv")
+```
+
+SCATTERPLOT ANALYSIS
+
+```{r}
+# BETWEEN TITLE LENGTH AND VIEWS
+ggplot(data =data, aes(x = title_length, y = views, color = views)) +
+  geom_point() +
+  labs(x = "Title Length", y = "Views") +
+  ggtitle("Relationship between Title Length and Views") +
+  scale_color_gradient(low = "pink", high = "red")+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))+
+  coord_flip()
+```
+
+```{r}
+# BETWEEN VIEWS AND LIKES
+plot(data$views, data$comment_count, col = c("green","purple"), pch = 19, xlab = "Views", ylab = "Likes", main = "Scatterplot of Views vs Likes ")
+```
+
+
+
+DENSITY ANALSYIS
+```{r}
+# DENSITY DISTRIBUTION OF VIEWS
+ggplot(data = data , aes(x=views)) +
+  geom_density(fill="red",alpha=1.88) +
+  xlab("Views") +
+  ylab("Density") +
+  ggtitle("Density distribution of Views")
+```
+
+```{r}
+# DENSITY DISTRIBUTION OF LIKES
+ggplot(data = data , aes(x=likes)) +
+  geom_density(fill="red",alpha=1.88) +
+  xlab("Likes") +
+  ylab("Density") +
+  ggtitle("Density distribution of Views")
+```
+
+```{r}
+# DENSITY DISTRIBUTION OF COMMENTS
+ggplot(data = data , aes(x=scale(comment_total))) +
+  geom_density(fill="red",alpha=1.88) +
+  xlab("Likes") +
+  ylab("Density") +
+  ggtitle("Density distribution of Views")
+```
+
+```{r}
+# DENSITY DISTRIBUTION OF DISLIKES
+ggplot(data = data , aes(x=dislikes)) +
+  geom_density(fill="red",alpha=1.88) +
+  xlab("Likes") +
+  ylab("Density") +
+  ggtitle("Density distribution of Views")
+```
+
+FAMOUS WORD'S CLOUD FORMATION 
+```{r}
+# CREATE A CORPUS OF THE TRENDING VIDEO TITLES
+wordcorp <- Corpus(VectorSource(data$title))
+
+# CLEAN THE CORPUS BY REMOVING NUMBERS, PUNCTUATION, AND COMMON WORDS
+wordcorp <- tm_map(wordcorp, removeNumbers ,force=T)
+wordcorp <- tm_map(wordcorp, removePunctuation , force =TRUE)
+wordcorp <- tm_map(wordcorp, removeWords, stopwords("en"))
+
+# CONVERTING CORPUS TO TERM-DOCUMENT MATRIX
+tdm <- TermDocumentMatrix(wordcorp)
+
+
+# CONVERT TERM-DOCUMENT MATRIX TO WORD FREQUENCY MATRIX
+m <- as.matrix(tdm)
+v <- sort(rowSums(m), decreasing = TRUE)
+
+# CREATE WORD CLOUD FOR MOST FREQUENT WORDS
+
+set.seed(1234) # SET UP RANDOM SEED
+
+wordcloud(words = names(v), freq = v,
+          max.words = 100, random.order = TRUE,
+          colors = brewer.pal(8, "Dark2"))
+```
+
+
+FEATURE ENGINEERING
+```{r}
+
+# IMPUTING HOUR 
+data$hour <- as.numeric(format(as.POSIXct(data$publish_time, format="%Y-%m-%dT%H:%M:%S.000Z"), "%H"))
+
+# IMPUTING TREND SCORE 
+data$trend_score <- ((data$views - mean(data$views))/sd(data$views)) +
+  ((data$likes - mean(data$likes))/sd(data$likes)) +
+  ((data$comment_total - mean(data$comment_total))/sd(data$comment_total))
+
+# IMPUTING HOURLY_TREND
+hourly_trend <- aggregate(trend_score ~ hour, data = data, FUN = mean)
+```
+
+
+AGAIN EXPLORATORY VIEW FOR NEW VARIABLES
+```{r}
+ggplot(data, aes(x = factor(hour), y = trend_score)) +
+  geom_boxplot(fill = "#69b3a2", color = "blue", alpha = 0.8) +
+  labs(x = "Publishing Hour", y = "Trend Score") +
+  ggtitle("Trend Score by Publishing Hour")
+```
+
+```{r}
+# EFFECT OF RATING DISABLED
+pie(table(data$ratings_disabled), col = c("black","white") )
+```
+
+
+```{r}
+# EFFECT OF COMMENT DISABLED
+pie(table(data$comments_disabled), col =c("black","white") )
+```
+
