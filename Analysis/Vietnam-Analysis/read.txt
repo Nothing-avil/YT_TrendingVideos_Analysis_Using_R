@@ -1,0 +1,2 @@
+This folder include analysis for Vietnam dataset of Youtube as it contains wide variety of bvariables for desciptive analysis and to better understand the factor relation on trendiness 
+ 
