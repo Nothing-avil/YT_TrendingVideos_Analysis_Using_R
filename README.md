@@ -1,41 +1,20 @@
-# YT_TrendingVideos_Analysis_Using_R
 
+# YOUTUBE TRENDING VIDEO ANALYSIS  
+<img src="https://user-images.githubusercontent.com/129526047/236859217-b71c4e06-e2f1-479e-a3f8-dfa075979129.png" width="500">       <img src="https://user-images.githubusercontent.com/129526047/236859088-e1f4b177-4a9a-4e8a-a625-fc99bfb3f878.png" width="500">
 
-
-
-
-# YouTube Video Engagement Dataset
-
-This project aims to analyze the impact of the YouTube algorithm on video recommendations by building and utilizing an annotated dataset of 23,738 videos collected from 72 YouTube channels in Vietnam. Also analyzing the dataset for different countries to understand the factors behaviour for indivisual country's Video to Trendiness.
-
-Countries analyzed for experiments includes India, great Britain, France, Cannada, Japan, Mexico, Russia and United State.
+# ABOUT PROJECT
+Welcome to this project on YouTube video trend analysis! In this project, we will explore trends in YouTube video data to gain insights into what makes a video successful. We will use a dataset of YouTube video information and analyze key features such as views, likes, comments, category and various other factors  to identify patterns and relationships that can help creators optimize their videos for success. Along the way, we will use a variety of tools and techniques from data analysis and visualization to machine learning and predictive modeling. Whether you're a data analyst, a YouTube creator, or just curious about the secrets of YouTube success, this project is for you!
 
 # Introduction
-
 YouTube is one of the largest online video-sharing platforms, providing content creators with a space to share their videos and earn extra income. For content creators, understanding whether their videos will be engaged by viewers is essential for improving the quality of their content before publishing. In this project, we build a dataset of videos collected from various categories and evaluate metrics for measuring video engagement.
 
-# Dataset
 
-We collected a dataset of 23,738 videos published over a period of 12 years, categorized into four categories: comedy, travel-and-events, education, and science-and-technology. The dataset was collected from 72 YouTube channels in Vietnam.
+#  DATASET AND FEATURES
 
-Using a novel measure called the Q score, we annotated videos with three levels of engagement: Engage, Neutral, and Not Engage. From this supervised dataset, we constructed a multimodal model to infer the degree of engagement based on the content of a YouTube video, such as title, audio, thumbnail, video, and tags.
+This dataset offers two distinct sets of data, each with its own distribution. 
+The first set consists of trending video datasets from Vietnam, extracted from UCL, containing plenty of features which is used to provide valuable insights into the underlying factors contributing to video trends.
 
-# Purpose
-
-The purpose of this project is to analyze the impact of the factors on YouTube video . By using our annotated dataset and our metric for measuring video engagement, we aim to provide insights into how the video gets populated and which factor highly affect it.
-
-# Conclusion
-
-We believe that our dataset and metric will be useful for engagement analytics and studies on social media content. Our project provides a foundation for future research into the YouTube algorithm and its impact on video recommendations.
-
-
-
-# Whole Process Cycle
-![image](https://user-images.githubusercontent.com/129526047/230573386-c303cea5-3b7f-49a9-9d4b-b33d6704622d.png)                                  
-![image](https://user-images.githubusercontent.com/129526047/230573546-73862639-3eec-4ed6-9b74-c44a7a237039.png)
-
-
-# Metadata
+## VIETNAM DATASET FEATURES
 The dataset includes the following columns:
 
 < > channel_id : ID of channel
@@ -127,6 +106,52 @@ The dataset includes the following columns:
 | q_score | Q score of video | 0.000000 |
 | label_1 | Engagement level based on engagement_rate_1 of video | 0.000000 |
 | label_2 | Engagement level based on q_score of video | 0.000000 |
+
+## COUNTRY'S DATASET FEATURES
+The second set consists of various datasets from different countries, which can be analyzed individually.
+Also analyzing the dataset for different countries to understand the factors behaviour for indivisual country's Video to Trendiness.
+Countries analyzed for experiments includes India, great Britain, France, Cannada, Japan, Mexico, Russia and United State.
+
+< > Video ID
+
+< > Trending date
+
+< > Title of the video
+
+< > Channel title
+
+< > Category ID
+
+< > Publish time
+
+< > Tags
+
+< > Views
+
+< > Likes
+
+< > Dislikes
+
+< > Comment count
+
+< > Thumbnail link
+
+< > Description
+
+# Whole Process Cycle
+<img src="https://user-images.githubusercontent.com/129526047/230573386-c303cea5-3b7f-49a9-9d4b-b33d6704622d.png" width="500">   <img src="https://user-images.githubusercontent.com/129526047/230573546-73862639-3eec-4ed6-9b74-c44a7a237039.png" width="500">
+
+
+
+# REFERENCES
+
+[1] Gabielczak, P., Sobczyk-Kolbuch, M., & Rokicki, M. (2018). Analysis of factors affecting YouTube video popularity. International Journal of Electronics and Telecommunications, 64(3), 319-326.
+
+[2] Song, Y., Shah, C., Jenkins, P., & Li, X. (2018). Understanding video popularity on YouTube: An empirical study. ACM Transactions on Multimedia Computing, Communications, and Applications, 14(3), 1-21.
+
+
+[3] Petrovic, M., Osmani, V., & Litovski, V. (2020). Analysis of factors influencing video popularity on YouTube: A systematic literature review. Journal of Ambient Intelligence and Humanized Computing, 11(11), 4939-4962.
+
 
 
 
