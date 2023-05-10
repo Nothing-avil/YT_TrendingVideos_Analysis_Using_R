@@ -224,6 +224,15 @@ data$trend_score <- ((data$views - mean(data$views))/sd(data$views)) +
 
 # IMPUTING HOURLY_TREND
 hourly_trend <- aggregate(trend_score ~ hour, data = data, FUN = mean)
+
+
+#  THE TOP 10 CATEGORIES BY VIEWS
+top10_categories <- country.data %>%
+  group_by(channel_title) %>%
+  summarize(total_views = sum(views)) %>%
+  arrange(desc(total_views)) %>%
+  head(10)
+
 ```
 
 
@@ -244,5 +253,13 @@ pie(table(data$ratings_disabled), col = c("black","white") )
 ```{r}
 # EFFECT OF COMMENT DISABLED
 pie(table(data$comments_disabled), col =c("black","white") )
+```
+
+```{r}
+# CREATING BARPLOTS OF TOP 10 CATEGORIES BY VIEWS
+ggplot(data = top10_categories, aes(x = reorder(channel_title, -total_views), y = total_views)) + 
+  geom_bar(stat = "identity", fill = "orange", color = "black") + 
+  theme(axis.text.x = element_text(angle = 45)) + 
+  ggtitle("Top 10 Categories by Views")
 ```
 
