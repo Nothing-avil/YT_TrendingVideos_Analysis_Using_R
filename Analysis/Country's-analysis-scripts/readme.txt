@@ -3,5 +3,5 @@
 
 # NOTE 
 
-country-analysis-scripts.ipynb is  a structural snitppet used for every country to extract same information so we can relate it ... 
-yt -analysis.ipynb is a notebook speciall focused on complete analysis on Veitnam ....
+country-analysis-scripts.ipynb is  a combined courty analysis on single script. 
+yt -analysis.ipynb is a notebook speciall focused on complete analysis on Veitnam .
